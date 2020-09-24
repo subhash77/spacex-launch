@@ -1,0 +1,37 @@
+<div id="page-container">
+<header>
+    <h1>SpaceX Launch Programs</h1>
+</header>
+<div id="content-wrap">
+    <div class="sidebar">
+        <div class="card">
+            <h2>Filters</h2>
+            <div id="launch-year">Launch Year</div>
+            <hr class="row-break">
+            <div class="buttons">
+                <button *ngFor="let year of years" (click)="showYear('launch_year',year)"
+                    [ngClass]="{'button-select':toggleYear && year==launchYear}">{{year}}</button>
+            </div>
+            <br>
+            <div id="launch-year">Success Launch</div>
+            <hr class="row-break">
+            <div class="buttons">
+                <button (click)="showYear('launch_success',true)"
+                    [ngClass]="{'button-select':toggleLaunch && launchSuccess==true}">True</button>
+                <button (click)="showYear('launch_success',false)"
+                    [ngClass]="{'button-select':toggleLaunch && launchSuccess==false}">False</button>
+            </div>
+            <br>
+            <div id="launch-year">Success Landing</div>
+            <hr class="row-break">
+            <div class="buttons">
+                <button (click)="showYear('land_success',true)"
+                    [ngClass]="{'button-select':toggleLanding && landSuccess==true}">True</button>
+                <button (click)="showYear('land_success',false)"
+                    [ngClass]="{'button-select':toggleLanding && landSuccess==false}">False</button>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="content-area">
+    <div class="mainCard">
+      <div class="card" *ngFor="let data of datas">
+        <img src="{{data?.links.mission_patch}}" alt="Avatar">
+        <div class="sub-section">
+          <div class="mission-title">{{data?.mission_name}} {{data?.flight_number}}</div>
+          <br>
+
+          <b>Mission ids:</b>
+          <ul>
+            <li *ngFor="let mid of data?.mission_id">{{mid}}</li>
+          </ul>
+          <b>Launch Year:</b> {{data?.launch_year}}
+          <br>
+          <b>Successful Launch:</b> {{data?.launch_success}}
+          <br>
+          <b>Successful Landing:</b>
+          <ul>
+            <li *ngFor="let core of data?.rocket?.first_stage?.cores;let i=index">
+              Core{{i+1}} {{core?.land_success}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
